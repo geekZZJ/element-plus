@@ -230,7 +230,7 @@ export default defineComponent({
           ? errors[0].message || `${props.prop} is required`
           : ''
         // fix: #3860 after version 3.5.2, async-validator also return fields if validation fails
-        callback(validateMessage.value, !errors ? {} : fields)
+        callback(validateMessage.value, errors ? fields : {})
         elForm.emit?.(
           'validate',
           props.prop,
